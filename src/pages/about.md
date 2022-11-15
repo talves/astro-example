@@ -1,6 +1,6 @@
 ---
 title: Test Markdown Page
-layout: ../../layouts/BaseLayout.astro
+layout: ../layouts/BaseLayout.astro
 author: talves
 date: 05/09/2022
 ---

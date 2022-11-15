@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "preact/hooks";
 
 export default function Title({ children, name: initialName }) {
   const [name, setName] = useState(initialName);
