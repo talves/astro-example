@@ -20,6 +20,7 @@ export default function Navigation(props) {
           data.menu.items
             .filter((k) => !k.hidden)
             .map((item, index) => {
+              console.log("paths:",data?.url?.pathname,item.path)
               return (
                 <NavItem key={index} href={item.path} isActive={JSON.stringify(data?.url?.pathname===item.path)}>
                   {item.label}
