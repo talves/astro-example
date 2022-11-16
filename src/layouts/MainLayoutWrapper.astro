@@ -1,0 +1,28 @@
+---
+import PageWrapper from "./PageWrapper.astro";
+import ListPageWrapper from "./ListPageWrapper.astro";
+import AppWrapper from "./AppWrapper.astro";
+import PageMainWrapper from "./PageMainWrapper.astro";
+
+let { content: {type="page"} = {}} = Astro.props; //default is page
+if (Astro.props.meta && !Astro.props.type) type = Astro.props.meta.type || "item-page";
+if (Astro.props.posts) type = "list-page";
+// console.log("type", type)
+
+let MainLayoutWrapper = PageWrapper;
+switch (type) {
+    case "list-page":
+    case "item-page":
+        MainLayoutWrapper = ListPageWrapper;
+        break;
+    case "page":
+        MainLayoutWrapper = PageMainWrapper;
+        break;
+    case "app":
+        MainLayoutWrapper = AppWrapper;
+        break;
+}
+---
+<MainLayoutWrapper>
+    <slot />
+</MainLayoutWrapper>

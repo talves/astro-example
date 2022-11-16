@@ -1,10 +1,12 @@
 ---
 // src/layouts/BaseLayout.astro
+import FlexLayoutWrapper from "./FlexLayoutWrapper.astro";
+import Header from "../components/Layout/header";
+import MainLayoutWrapper from "./MainLayoutWrapper.astro";
 // 1. The content prop gives access to frontmatter data
 const { content } = Astro.props;
 const url = Astro.url;
 
-import Header from "../components/Layout/header";
 const menu = {
   "items": [
   {
@@ -51,14 +53,19 @@ const menu = {
   <head>
     <!-- Add other Head elements here, like styles and meta tags. -->
     <title>{content.title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
   </head>
   <body>
     <!-- Add Header  -->
-    <Header label="Astro Template" data={{ menu, url }} client:only="preact"/>
-    <!-- Add other UI components here, like common headers and footers. -->
-    <h1>{content.title} by {content.author}</h1>
-    <!-- 2. Rendered HTML will be passed into the default slot. -->
-    <slot />
-    <p>Written on: {content.date}</p>
+    <FlexLayoutWrapper>
+      <Header label="Astro Template" data={{ menu, url }} client:only="preact"/>
+      <MainLayoutWrapper content={content}>
+        <!-- Add other UI components here, like common headers and footers. -->
+        <h1>{content.title} by {content.author}</h1>
+        <!-- 2. Rendered HTML will be passed into the default slot. -->
+        <slot />
+        <p>Written on: {content.date}</p>
+      </MainLayoutWrapper>
+    </FlexLayoutWrapper>
   </body>
 </html>

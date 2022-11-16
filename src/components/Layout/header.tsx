@@ -27,12 +27,6 @@ const HeaderWrapper = (props) => (
   </Box>
 );
 
-export const ThemeSwitcher = (props) => (
-  <Box as="div" {...props}>
-    {props.children}
-  </Box>
-);
-
 export default ({data={}, ...props}) => {
   const [onOff, setOnOff] = useState(false);
 

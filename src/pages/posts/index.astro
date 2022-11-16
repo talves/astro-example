@@ -5,8 +5,7 @@ const someProps = {
 	name: "These are posts",
 };
 import BaseLayout from '../../layouts/BaseLayout.astro';
-title:"Posts"
 ---
-<BaseLayout content={{title: "Home"}}>
+<BaseLayout content={{title: "Posts", type:"list-page"}}>
 	<Title {...someProps} client:load>Astro</Title>
 </BaseLayout>

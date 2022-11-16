@@ -3,6 +3,7 @@ title: Test Markdown Page
 layout: ../layouts/BaseLayout.astro
 author: talves
 date: 05/09/2022
+type: item-page
 ---
 
 # Hi there!
