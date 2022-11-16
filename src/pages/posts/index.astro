@@ -1,0 +1,12 @@
+---
+// Component Imports
+import Title from '../../components/Title.jsx';
+const someProps = {
+	name: "These are posts",
+};
+import BaseLayout from '../../layouts/BaseLayout.astro';
+title:"Posts"
+---
+<BaseLayout content={{title: "Home"}}>
+	<Title {...someProps} client:load>Astro</Title>
+</BaseLayout>

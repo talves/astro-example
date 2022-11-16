@@ -7,5 +7,5 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), mdx(), preact({ compat: true })]
+  integrations: [preact({ compat: true }), tailwind(), mdx() ]
 });

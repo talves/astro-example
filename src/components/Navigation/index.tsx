@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import NavItem from "./NavItem";
 import { ThemeSwitcher } from "../Buttons/ThemeSwitcher";
 
-const Navigation = (props) => {
+export default function Navigation(props) {
   const { data, toggle } = props;
   return (
     <Box
@@ -32,5 +32,3 @@ const Navigation = (props) => {
     </Box>
   );
 };
-
-export default Navigation;

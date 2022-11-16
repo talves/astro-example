@@ -32,14 +32,15 @@ export const ThemeSwitcher = ({ as = "div", ...props }) => {
     return theme;
   }
 
-  const handleOnClick = () => {
+  const handleOnClick=() => {
+    console.log("handleOnClick");
     const theme = getStorageTheme();
     if (theme === "dark") {
       setToggleClass("light");
     } else {
       setToggleClass("dark");
     }
-  };
+  }
 
   useEffect(() => {
     setTheme(toggleClass);
@@ -47,14 +48,15 @@ export const ThemeSwitcher = ({ as = "div", ...props }) => {
 
   return (
     <Box as={as} {...props}>
-      <button
+      <Box
+        as="button"
         id="theme-toggle"
         type="button"
         role="button"
+        onclick={handleOnClick}
         aria-label={`Color Theme Switcher${
           toggleClass === " click for light" ? "" : " click for dark"
         }`}
-        onClick={handleOnClick}
         class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1"
       >
         <svg
@@ -96,7 +98,7 @@ export const ThemeSwitcher = ({ as = "div", ...props }) => {
             clip-rule="evenodd"
           ></path>
         </svg>
-      </button>
+      </Box>
     </Box>
   );
 };

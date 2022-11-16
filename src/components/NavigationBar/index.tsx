@@ -9,12 +9,6 @@ const NavigationBarWrapper = (props) => {
   );
 };
 
-export const ThemeSwitcher = (props) => (
-  <Box as="div" {...props}>
-    {props.children}
-  </Box>
-);
-
 const MenuButton = (props) => {
   const [on, setOn] = useState(false);
 
@@ -69,9 +63,6 @@ const NavigationBar = (props) => {
         </Box>
         <MenuButton onToggle={props.onToggle}/>
         {props.children}
-        <Box class="float-right absolute right-0">
-          <ThemeSwitcher />
-        </Box>
       </Box>
     </NavigationBarWrapper>
   );

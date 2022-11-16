@@ -1,13 +1,7 @@
 {
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "types": [
-      "vite/client"
-    ],
+    // Preact specific settings
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   }
