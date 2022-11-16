@@ -8,5 +8,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 title:"Home"
 ---
 <BaseLayout content={{title: "Home"}}>
-	<Title {...someProps} client:load>Astro</Title>
+	<div class="mx-auto h-4/5 w-auto px-4 pt-16 pb-8 sm:pt-24 lg:px-8">
+        <h1 class="mx-auto max-w-6xl text-center text-5xl font-semibold leading-[1.1] text-gray-800 dark:text-gray-900 tracking-tighter sm:text-7xl lg:text-8xl xl:text-8xl">
+          Example <br class="hidden lg:block" />
+          <span class="inline-block bg-gradient-to-l  from-slate-800 to-orange-800 bg-clip-text text-transparent">{"Astro Template"}</span>
+        </h1>
+        <div class="mx-auto mt-5 max-w-xl sm:flex sm:justify-center md:mt-8">
+          <div class="rounded-md">
+            <a href="https://astro.build" target="_blank" aria-label="Go to test site. New Tab.">
+              <div class="flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 font-medium text-gray-800 no-underline bg-gray-300 hover:bg-gray-500 dark:bg-gray-800 dark:text-gray-200 dark:hover:text-gray-800 dark:hover:bg-gray-500 md:py-3 md:px-10 md:text-2xl md:leading-6">
+                Astro Site
+                <span class="ml-2 bg-gradient-to-r from-orange-800 to-slate-400 bg-clip-text text-transparent">
+                  {"--->"}
+                </span>
+			</div>
+			</a>
+		</div>
+        </div>
+      </div>
 </BaseLayout>
