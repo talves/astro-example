@@ -4,7 +4,7 @@
 npm init astro -- --template minimal
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/talves/astro-example/tree/main?file=README.md)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 

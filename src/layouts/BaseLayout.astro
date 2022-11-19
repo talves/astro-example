@@ -3,6 +3,7 @@
 import FlexLayoutWrapper from "./FlexLayoutWrapper.astro";
 import Header from "../components/Layout/header";
 import MainLayoutWrapper from "./MainLayoutWrapper.astro";
+import AstroNavigation from "../components/AstroNavigation/index.astro";
 // 1. The content prop gives access to frontmatter data
 const { content } = Astro.props;
 const url = Astro.url;
@@ -59,6 +60,7 @@ const menu = {
     <!-- Add Header  -->
     <FlexLayoutWrapper>
       <Header label="Astro Template" data={{ menu, url }} client:only="preact"/>
+      <AstroNavigation  data={{ menu, url }}/>
       <MainLayoutWrapper content={content}>
         <!-- Add other UI components here, like common headers and footers. -->
         <slot />

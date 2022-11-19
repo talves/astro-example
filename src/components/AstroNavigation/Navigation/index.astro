@@ -1,0 +1,30 @@
+---
+import ThemeSwitcher from "./theme-switcher.astro";
+import ActiveItem from "./active-item.astro";
+import InactiveItem from "./inactive-item.astro";
+const props = Astro.props;
+const {data={}} = props;
+const path = Astro.url.pathname
+---
+
+    <nav
+    id="navbar-default"
+    class={`fixed top-12 bottom-0 ${
+      props.toggle ? "right-0" : "-right-full"
+    } w-52 md:w-auto md:static ${props.class} transition-all duration-300`}
+  >
+<ul class="outline outline-2 md:outline-0 outline-gray-600 p-4 mt-4 bg-gray-50 md:flex md:flex-row md:items-center md:w-auto md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      {data.menu &&
+        data.menu &&
+        data.menu.items &&
+        data.menu.items
+          .filter((k) => !k.hidden)
+          .map((item, index) => {
+            // console.log("paths:",path,item.path)
+            const baseClass = "block p-3 text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent";
+            return path===item.path ? <ActiveItem class={baseClass} label={item.label} /> : <InactiveItem href={item.href} class={`${baseClass} md:dark:bg-gray-800`} label={item.label} />
+          })}
+      <li><ThemeSwitcher /></li>
+      <slot />
+    </ul>
+</nav>

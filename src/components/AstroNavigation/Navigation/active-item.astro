@@ -1,0 +1,6 @@
+---
+const props = Astro.props;
+---
+<li class="bg-gray-400 dark:bg-gray-600 md:dark:bg-gray-800 md:p-3">
+    <div class={`${props.class}`}>{props.label}</div>
+</li>
