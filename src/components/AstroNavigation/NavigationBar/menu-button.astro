@@ -1,11 +1,19 @@
 ---
-import { HydrationDirectiveProps } from "astro/dist/runtime/server/hydration";
-
-const handleClick = Astro.props.onclick
 ---
-
+<script>
+  const menuButton = document.getElementById("navbar-menu-button");
+  const handleClick = () => {
+    console.log("menuButton: Clicked", globalThis.customEvents.data?.isOn)
+    if (globalThis.customEvents.data?.isOn) {
+      document.dispatchEvent(globalThis.customEvents.menuOffEvent);
+    } else {
+      document.dispatchEvent(globalThis.customEvents.menuOnEvent);
+    }
+  }
+  menuButton.addEventListener("click", handleClick);
+</script>
 <button
-      onclick={handleClick}
+      id="navbar-menu-button"
       data-collapse-toggle="navbar-default"
       type="button"
       class="md:hidden items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"

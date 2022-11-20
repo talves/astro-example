@@ -59,8 +59,8 @@ const menu = {
   <body>
     <!-- Add Header  -->
     <FlexLayoutWrapper>
+      <AstroNavigation label="Astro Template"  data={{ menu, url }}/>
       <Header label="Astro Template" data={{ menu, url }} client:only="preact"/>
-      <AstroNavigation  data={{ menu, url }}/>
       <MainLayoutWrapper content={content}>
         <!-- Add other UI components here, like common headers and footers. -->
         <slot />

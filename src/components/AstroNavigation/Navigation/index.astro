@@ -6,12 +6,26 @@ const props = Astro.props;
 const {data={}} = props;
 const path = Astro.url.pathname
 ---
+<script>
+  const navBar = document.getElementById("navbar-default");
+  const handleClick = (event) => {
+    console.log("nav-menu-click:", event)
+    if (event.detail.isOn) {
+      navBar.classList.add("right-0");
+      navBar.classList.remove("-right-full");
+    } else {
+      navBar.classList.add("-right-full");
+      navBar.classList.remove("right-0");
+    }
+  }
+  document.addEventListener("menu-click", handleClick);
+  navBar.classList.add("-right-full");
+    navBar.classList.remove("right-0");
+</script>
 
-    <nav
+<nav
     id="navbar-default"
-    class={`fixed top-12 bottom-0 ${
-      props.toggle ? "right-0" : "-right-full"
-    } w-52 md:w-auto md:static ${props.class} transition-all duration-300`}
+    class={`fixed top-12 bottom-0 w-52 md:w-auto md:static ${props.class} transition-all duration-300`}
   >
 <ul class="outline outline-2 md:outline-0 outline-gray-600 p-4 mt-4 bg-gray-50 md:flex md:flex-row md:items-center md:w-auto md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
       {data.menu &&

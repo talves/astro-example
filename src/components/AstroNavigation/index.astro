@@ -1,31 +1,41 @@
 ---
 import NavigationBar from "./NavigationBar/index.astro";
 import Navigation from "./Navigation/index.astro";
-const data = Astro.props.data || {};
+const { label, data={} } = Astro.props;
 ---
 <script>
     // setup ThemeSwitcher for color theme dark/light mode
 
     let theme: string;
     if (typeof window !== "undefined") {
-    theme = localStorage.getItem("color-theme");
-    if (theme === null || !["dark", "light"].includes(theme)) {
-        console.log(`checking system pref`);
-        const systemSetToDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-        ).matches;
-        theme = systemSetToDark ? "dark" : "light";
+        theme = localStorage.getItem("color-theme");
+        if (theme === null || !["dark", "light"].includes(theme)) {
+            console.log(`checking system pref`);
+            const systemSetToDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+            ).matches;
+            theme = systemSetToDark ? "dark" : "light";
+        }
+        if (["dark", "light"].includes(theme)) {
+            document.documentElement.classList.remove(theme === "dark" ? "light" : "dark");
+            document.documentElement.classList.add(theme);
+        } else {
+            document.documentElement.classList.remove("light");
+        }
+        console.log("theme:",theme)
+
+        // add event to document to set menu state
+        const handleMenuEvent = (event) => {
+            globalThis.customEvents.data ={ isOn: event.detail.isOn };
+        }
+        const menuOnEvent = new CustomEvent('menu-click',{ detail: { isOn: true} })
+        const menuOffEvent = new CustomEvent('menu-click',{ detail: { isOn: false} })
+        globalThis.customEvents = { menuOnEvent, menuOffEvent };
+        document.addEventListener("menu-click", handleMenuEvent);
     }
-    if (["dark", "light"].includes(theme)) {
-        document.documentElement.classList.remove(theme === "dark" ? "light" : "dark");
-        document.documentElement.classList.add(theme);
-    } else {
-        document.documentElement.classList.remove("light");
-    }
-    console.log("theme:",theme)
-    }
+    
 </script>
-<NavigationBar>
+<NavigationBar label={label} onToggle={}>
     <Navigation data={data} toggle={false}/>
 </NavigationBar>
 
