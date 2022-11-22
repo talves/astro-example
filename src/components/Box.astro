@@ -1,0 +1,5 @@
+---
+const Box = Astro.props.as || "div";
+const props = Astro.props;
+---
+<Box {...props}><slot /></Box>

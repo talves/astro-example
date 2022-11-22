@@ -1,11 +1,11 @@
 ---
 // Component Imports
-import Title from '../../components/PreactNavigation/Title.jsx';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Title from '../../components/Title.astro';
 const someProps = {
 	name: "These are posts",
 };
-import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout content={{title: "Posts", type:"list-page"}}>
-	<Title {...someProps} client:load>Astro</Title>
+	<Title {...someProps}>Test of the Title Component</Title>
 </BaseLayout>

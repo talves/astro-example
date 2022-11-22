@@ -1,0 +1,9 @@
+---
+const { name = "Missing Title"} = Astro.props;
+---
+<div class="title">
+    <h1>{name}</h1>
+</div>
+<div class="title-message">
+    <slot />
+</div>

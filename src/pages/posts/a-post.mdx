@@ -17,7 +17,7 @@ keywords: [
 image: "/images/social/a-post.png"
 author: "talves"
 ---
-import { Box } from "../../components/PreactNavigation/Box.tsx";
+import Box from "../../components/Box.astro";
 
 # {frontmatter.title}
 
@@ -40,4 +40,4 @@ export const meta = {
 };
 ```
 
-<Box as="h4" class="heading h3-mdx">This is a component in {frontmatter.title}</Box>
+<Box as="h4" class="heading text-2xl">This is a component in {frontmatter.title}</Box>
