@@ -784,6 +784,11 @@ astring@^1.8.0:
   resolved "https://registry.npmjs.org/astring/-/astring-1.8.3.tgz#1a0ae738c7cc558f8e5ddc8e3120636f5cebcb85"
   integrity sha512-sRpyiNrx2dEYIMmUXprS8nlpRg2Drs8m9ElX9vVEXaCB4XEAJhKfs7IcX0IwShjuOAjLR6wzIrgoptz1n19i1A==
 
+astro-seo@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/astro-seo/-/astro-seo-0.6.0.tgz#d46f98baa929f2111dd702662806fa741a9ac02a"
+  integrity sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==
+
 astro@^1.6.8:
   version "1.6.8"
   resolved "https://registry.npmjs.org/astro/-/astro-1.6.8.tgz#46ab77d8e968088faf8bcc2e77d2856cb1fe0bdd"
@@ -3230,7 +3235,7 @@ preact-render-to-string@^5.2.4:
   dependencies:
     pretty-format "^3.8.0"
 
-preact@^10.6.5:
+preact@^10.11.3:
   version "10.11.3"
   resolved "https://registry.npmjs.org/preact/-/preact-10.11.3.tgz#8a7e4ba19d3992c488b0785afcc0f8aa13c78d19"
   integrity sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==
