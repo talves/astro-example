@@ -1,11 +1,12 @@
 ---
 // src/layouts/BaseLayout.astro
 import FlexLayoutWrapper from "./FlexLayoutWrapper.astro";
-import Header from "../components/PreactNavigation/Layout/header";
 import MainLayoutWrapper from "./MainLayoutWrapper.astro";
 import AstroNavigation from "../components/AstroNavigation/index.astro";
+import { SEO } from "astro-seo";
+
 // 1. The content prop gives access to frontmatter data
-const { content } = Astro.props;
+const { content, title } = Astro.props;
 const url = Astro.url;
 
 const menu = {
@@ -49,12 +50,40 @@ const menu = {
   ]
 }
 
+const seoTitle = title
+  ? title + " | " + "Astro Template"
+  : "Template for Astro";
+
+const canonicalURL = new URL(Astro.url.pathname || "", Astro.site).toString();
+const seoImage =  new URL("/og.jpg", Astro.site).toString();
+
 ---
 <html>
   <head>
     <!-- Add other Head elements here, like styles and meta tags. -->
     <title>{content.title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <SEO
+      title={seoTitle}
+      description="This site is a template for Astro built with TailwindCSS."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@talves",
+        site: "@talvesdev",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `Astro Template - Starter Template for Astro`,
+          image: seoImage,
+        },
+        image: {
+          alt: "Home Screenshot",
+        },
+      }}
+    />
   </head>
   <body>
     <!-- Add Header  -->
