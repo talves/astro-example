@@ -1,6 +1,7 @@
 ---
 // Component Imports
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Link from "@components/ui/link.astro";
 title:"Home"
 ---
 <BaseLayout content={{title: "Home"}}>
@@ -17,9 +18,19 @@ title:"Home"
                 <span class="ml-2 bg-gradient-to-r from-orange-800 to-slate-400 bg-clip-text text-transparent">
                   {"--->"}
                 </span>
-			</div>
-			</a>
-		</div>
+            </div>
+            </a>
+          </div>
+        </div>
+        <div class="mx-auto mt-5 max-w-xl sm:flex sm:justify-center md:mt-8">
+          <div class="rounded-md">
+            <Link href="https://astro.build" target="_blank" aria-label="Go to test site. New Tab." size="lg" class="font-medium" style={"primary"}>
+              Astro Site
+                <span class="ml-2 bg-gradient-to-r from-orange-800 to-slate-400 bg-clip-text text-transparent">
+                  {"--->"}
+                </span>
+            </Link>
+          </div>
         </div>
       </div>
 </BaseLayout>
