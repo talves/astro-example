@@ -1,0 +1,111 @@
+---
+import Button from "@components/ui/button.astro";
+import ItemCard from "./item-card.astro"
+import TypeButton from "./type-button.astro";
+const { title="Our Portfolio", shortDesc="Our Recent Projects", description="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form." } = Astro.props;
+const data = {
+  types: [
+  {
+      type: "branding",
+      label: "Branding"
+    },
+    {
+      type: "design",
+      label: "Design"
+    },
+    {
+      type: "marketing",
+      label: "Marketing"
+    },
+    {
+      type: "development",
+      label: "Development"
+    },
+  ],
+  items: [
+  {
+      type: "branding",
+      label: "Branding",
+      description: "Branding Design",
+      image:"https://via.placeholder.com/600.jpg/099/fff"
+    },
+    {
+      type: "branding",
+      label: "Branding",
+      description: "Branding Design Two",
+      image:"https://via.placeholder.com/600.jpg/099/fff"
+    },
+    {
+      type: "marketing",
+      label: "Marketing",
+      description: "Best Marketing tips",
+      image:"https://via.placeholder.com/600.jpg/099/fff"
+    },
+    {
+      type: "development",
+      label: "Development",
+      description: "Web Design Trend",
+      image:"https://via.placeholder.com/600.jpg/099/fff"
+    },
+    {
+      type: "design",
+      label: "Design",
+      description: "Business Card Design",
+      image:"https://via.placeholder.com/600.jpg/096/fff"
+    },
+    {
+      type: "marketing",
+      label: "Marketing",
+      description: "Digital marketing",
+      image:"https://via.placeholder.com/600.jpg/096/fff"
+    },
+    {
+      type: "branding",
+      label: "Branding",
+      description: "Creative Agency",
+      image:"https://via.placeholder.com/600.jpg/090/fff"
+    },
+  ]
+};
+---
+<section
+      x-data="
+        {
+          showCards: 'all',
+          activeClasses: 'bg-primary text-gray-600',
+          inactiveClasses: 'text-body-color hover:bg-primary hover:text-gray-400',
+        }
+      "
+      class="pt-20 pb-12 lg:pt-[90px] lg:pb-[60px]"
+    >
+      <div class="container mx-auto">
+        <div class="-mx-4 flex flex-wrap">
+          <div class="w-full px-4">
+            <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+              <span class="mb-2 block text-lg font-semibold text-amber-800">
+                { title }
+              </span>
+              <h2
+                class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]"
+              >
+                { shortDesc }
+              </h2>
+              <p class="text-base text-body-color">
+                { description }
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="-mx-4 flex flex-wrap justify-center">
+          <div class="w-full px-4">
+            <ul class="mb-12 flex flex-wrap justify-center space-x-1">
+              <TypeButton label={"All Projects"} type={"all"} />
+              {data.types.map(item => { return <TypeButton label={item.label} type={item.type} />})}
+            </ul>
+          </div>
+        </div>
+        <div class="-mx-4 flex flex-wrap">
+          {data.items.map(item => { return <ItemCard label={item.label} description={item.description} tag={item.type} image={item.image}/>})}
+        </div>
+      </div>
+    </section>

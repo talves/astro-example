@@ -1,0 +1,12 @@
+---
+import Button from "@components/ui/button.astro";
+const props = Astro.props;
+const customAttributes = {
+    "@click":`showCards = '${props.type}' `,
+      ":class":`showCards == '${props.type}' ? activeClasses : inactiveClasses `,
+      class:"inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+}
+---
+<li class="mb-1">
+    <Button { ...customAttributes }>{ props.label }</Button>
+</li>

@@ -1,5 +1,6 @@
 {
   "files.associations": {
     "*.mdx": "markdown"
-  }
+  },
+  "typescript.inlayHints.parameterNames.enabled": "all"
 }
