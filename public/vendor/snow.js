@@ -17,7 +17,7 @@ if (!talvesSnow) {
 `
   var embHTML = "";
   for (i = 1; i < 200; i++) {
-    embHTML += `<span class="talves-snow">${i % 2 ? "&#x2745;" : "&#x2746;"}</span>`;
+    embHTML += `<span class="talves-snow talves-snow-${i}">${i % 2 ? "&#x2745;" : "&#x2746;"}</span>`;
 
     var rndX = embRand(0, 1000000) * 0.0001,
       rndO = embRand(-100000, 100000) * 0.0001,
@@ -25,7 +25,7 @@ if (!talvesSnow) {
       rndS = (embRand(0, 10000) * 0.0001).toFixed(2);
 
     embCSS += `
-.talves-snow:nth-child(${i}) {
+.talves-snow-${i} {
   opacity: ${(embRand(1, 10000) * 0.0001).toFixed(2)};
   transform: translate(${rndX.toFixed(2)}vw, -10px) scale(${rndS});
   animation: fall-${i} ${embRand(10, 30)}s -${embRand(0, 30)}s linear infinite
